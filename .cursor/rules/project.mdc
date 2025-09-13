@@ -1,0 +1,211 @@
+---
+alwaysApply: true
+---
+
+# プロジェクトルール
+
+## 概要
+
+## 美容家電パーソナライズレコメンド診断アプリの作成
+
+Laravel Livewire  volt + Flux UIを使用して、1ページ完結型の美容家電のパーソナライズレコメンド診断アプリ「My Beauty Device」を作成してください。
+
+完成図は、/storage/MBD_app_materialのようになります。
+
+夢かわいいをテーマに、雲と空の中にいるようなようなUIデザインで、ユーザーが質問に答えながら最適な美容家電を診断できるアプリです。
+ページを遷移せず、1ページ内で動的処理で結果のレコメンドまで完結させてください。
+
+ヘッダーとフッダーは/storage/MBD_app_material/hosizora.jpgを使用して。
+ページの背景は、/storage/MBD_app_material/◯アプリ背景（画面FULL）.pngを使用してください。
+
+###ページの構成
+-　タイトル あなただけの美容家電診断→文字#FFFFFF、文字背景#648FFE←透明度40%
+-　キャッチコピー 自分に合った美容家電って何だろう？
+-　アプリの説明 どの美容家電を使ったら悩みやコンプレックスが解消できるのかな？→白い背景に、/storage/MBD_app_material/真顔.pngをレイヤーとして重ねる
+-　診断スタートボタン　
+-　第一設問　Q1.悩みはどれ？
+-　第二設問　Q.2気になる部分は？
+-　診断結果に基づいて美容家電をレコメンド　 おすすめアイテム1、こんな人にオススメだよ!/storage/MBD_app_material/ 指差しウィンク.pngをレイヤーとして重ねる、おすすめアイテム2、こんな人にオススメだよ!/storage/MBD_app_material/ジャンプ.pngをレイヤーとして重ねる、おすすめアイテム3、こんな人にオススメだよ!/storage/MBD_app_material/ 指差しウィンク.pngをレイヤーとして重ねる、
+-　でも正直、高いから買うのに勇気がいるな..../storage/MBD_app_material/ ジ悲しげ.png、そんな方はまずレンタル！、美容家電レンタルサイト「BEERACLE」への誘導、 私でもできる美容見つけた♡/storage/MBD_app_material/ありがとう涙.png
+
+###動作イメージ
+-　アプリの説明を可愛いアニメーションで出現
+-　スクロールすると診断スタートボタンが可愛いアニメーションで出現
+-　診断スタートボタンを押すと第一設問が可愛いアニメーションで出現
+-　第一設問を押すと第二設問が可愛いアニメーションで出現
+-　第二設問ボタンを押すと第三設問が可愛いアニメーションで出現
+-　第三設問ボタンを押すと診断結果レコメンドが可愛いアニメーションで出現
+-　スクロールで美容家電レンタルサイト「BEERACLE」への誘導するアニメーション出現
+
+
+### 機能要件
+
+#### 1. 診断フロー
+- **第1段階**: 3つのカテゴリから選択
+  - 髪の毛や頭皮などのヘアケア
+  - たるみや毛穴やくすみなどのフェイスケア
+  - 肩周りやお腹や脚部などのボディケア
+
+- **第2段階**: 各カテゴリから3つのサブカテゴリに分岐
+  - ヘアケア選択後↓
+  --髪や頭皮の乾燥もしくは乾燥後の広がりが気になる
+  --頭皮のかゆみが気になる！
+  --ブラッシングしても髪のうねりが抑えられない
+
+  - フェイスケア選択後↓
+  --顔のしわやたるみが気になる
+  --毛穴の広がりや黒ずみが気になる
+  --何だか顔がくすんでしまっている（くすみ）
+
+  - ボディケア選択後↓
+  --全体的もしくは部分的なダイエット
+  --疲労回復やスタイルの調整などのマッサージ
+  --顔やVIOなどの脱毛
+
+
+- **第3段階**: 商品レコメンド結果の表示
+  - 髪や頭皮の乾燥もしくは乾燥後の広がりが気になる　選択後↓
+  --表示名「ミラブルplus」、画像/MBD_app_material/ミラブルplus.jpg、URL「https://www.beeracle.jp/i/SM2101_N　
+
+  --表示名「ReFa（リファ）リファ ビューテック ドライヤープロ
+」、画像/MBD_app_material/リファ ビューテックドライヤー スマート.jpg、URL「https://www.beeracle.jp/i/refadpro_spb　、
+
+  --表示名「絹女（KINUJO） ヘアドライヤー
+」、画像/MBD_app_material/絹女（KINUJO） ヘアドライヤー.jpg、URL「https://www.beeracle.jp/i/KH203_spb　、
+
+  - 頭皮のかゆみが気になる！　選択後↓
+  --表示名「TILLET W-GEAR（ティレットダブルギア)」、画像/MBD_app_material/ティレットダブルギア.jpg、URL「https://www.beeracle.jp/i/17-P_sbplp　　、
+
+  --表示名「YA-MAN（ヤーマン）ミーゼスカルプリフト アクティブ」、画像/MBD_app_material/ヤーマンミーゼスカルプリフトアクティブ.jpg、URL「https://www.beeracle.jp/i/MS-80G_spb　、
+
+  --表示名「Panasonic(パナソニック)頭皮エステ サロンタッチタイプ〈スパイラル&スライド〉 EH-HE0G」、画像/MBD_app_material/Panasonic(パナソニック)頭皮エステ サロンタッチタイプ〈スパイラル&スライド〉 EH-HE0G.jpg、UR
+L「https://www.beeracle.jp/i/EH-HE0G_spb
+
+  - ブラッシングしても髪のうねりが抑えられない　選択後↓
+  --表示名「ReFa（リファ）リファビューテックストレートアイロン
+」、画像/MBD_app_material/ReFa（リファ）リファビューテックストレートアイロン.jpg、URL「https://www.beeracle.jp/i/refairon_spb
+  --表示名「Panasonic(パナソニック)ストレートアイロンナノケア　EH-HN50
+」、画像/MBD_app_material/Panasonic(パナソニック)ストレートアイロン ナノケア EH-HS0J-K(ブラック).jpg、URL「https://www.beeracle.jp/i/EH-HS0J_spb
+
+  --表示名「絹女（KINUJO）ストレートアイロン
+」、画像/MBD_app_material/絹女（KINUJO）ストレートアイロン.jpg、URL「Panasonic(パナソニック)ストレートアイロン ナノケア EH-HS0J-K(ブラック)
+」　
+
+  - 顔のしわやたるみが気になる　選択後↓
+  --表示名「Panasonic(パナソニック)リフトケア美顔器バイタリフトブラシ EH-SP60」、画像/MBD_app_material/EH-SP60.jpg、URL「https://www.beeracle.jp/i/EH-SP60_spb
+
+  --表示名Brighte(ブライト)エレキリフト リフト美顔器　BRT-FL170、画像は/MBD_app_material/エレキリフト.jpg、　URL「https://www.beeracle.jp/i/BRT-FL170_spb
+
+  --表示名「CORE FIT　 Face-Pointer（フェイスポインター）
+」、画像は/MBD_app_material/CORE FIT　 Face-Pointer（フェイスポインター）.jpg、URL「https://www.beeracle.jp/i/FP_spb
+
+  - 毛穴の広がりや黒ずみが気になる　選択後↓
+  --表示名「ReFa（リファ）リファクリア」、画像/MBD_app_material/ReFa（リファ）リファクリア.jpg、URL「https://www.beeracle.jp/i/RF-CL2123B_N　、機能1「」、機能2「」、機能3「」
+
+  --表示名「光美顔器 フォト ブライトショット EH-SL85
+」、画像/MBD_app_material/フォトブライトショット.jpg、URL「https://www.beeracle.jp/i/SL85_spb　
+
+  --表示名「Panasonic(パナソニック)スチーマー ナノケア EH-SA70
+」、画像/MBD_app_material/Panasonic(パナソニック)スチーマー ナノケア EH-SA70.jpg、URL「https://www.beeracle.jp/i/EH-SA70_sbp　
+
+  - 何だか顔がくすんでしまっている（くすみ）　選択後↓
+  --表示名「Panasonic(パナソニック)バイタリフトRF EH-SR85-K
+」、画像/MBD_app_material/バイタリフトRF EH-SR85-K.jpg、URL「https://www.beeracle.jp/i/EH-SR85_sbp　
+
+  --表示名「Panasonic(パナソニック)リフトケア美顔器 ソニック RF リフト EH-SR75
+」、画像/MBD_app_material/Panasonic(パナソニック)リフトケア美顔器 ソニック RF リフト EH-SR75.jpg、URL「https://www.beeracle.jp/i/EH-SR75_sbp　
+
+  --表示名「モテリフト」、画像/MBD_app_material/モテリフト.jpg、URL「https://www.beeracle.jp/i/BM2101BK_sbp0　
+  
+  - 全体的もしくは部分的なダイエット　選択後↓
+  --表示名「パイラナイト」、画像/MBD_app_material/パイラナイト　サムネ.jpg、URL「http://xn--beeracle-s0a.jp/i/PK-BR01_spb　
+
+  --表示名「筋膜スクレイパー」、画像/MBD_app_material/筋膜スクレイパー.jpg、URL「https://www.beeracle.jp/i/PHSC_sbp　
+
+  --表示名「ブレストEMS器 HONO」、画像/MBD_app_material/ブレストEMS器 HONO.jpg、URL「https://www.beeracle.jp/i/HONO_sbp　
+
+  - 疲労回復やスタイルの調整などのマッサージ　選択後↓
+  --表示名「マッスルパーカッションガン
+」、画像/MBD_app_material/マッスルパーカッションガン.jpg、URL「https://www.beeracle.jp/i/HM190_sbp　
+
+  --表示名「CORE FIT　Body-Driver（ボディドライバー）」、画像/MBD_app_material/body driver.jpg、URL「https://www.beeracle.jp/i/BD_spb　、
+
+  --表示名「ReFa（リファ）リファフォーカラットレイ」、画像/MBD_app_material/リファフォーカラットレイ.jpg、URL「https://www.beeracle.jp/i/RF-FR2306B_Y　
+
+  - -顔やVIOなどの脱毛　選択後↓
+  --表示名「光エステ スムースエピ ES-WP9A」、画像/MBD_app_material/スムースエピ ES-WP9A-H_サムネ.jpg、URL「https://www.beeracle.jp/i/ES-WP9A_sbp　
+
+  --表示名「Panasonic（パナソニック）光エステ ES-WP97」、画像/MBD_app_material/ES-WP97　サムネ.jpg、URL「https://www.beeracle.jp/i/ES-WP97_sbp　
+
+  --表示名「YA-MAN（ヤーマン） レイボーテヴィーナス
+」、画像/MBD_app_material/ヤーマンレイボーテヴィーナス_サムネイル.jpg、URL「https://www.beeracle.jp/i/STA-209L_sbp　
+
+
+
+
+
+
+#### 2. UIデザイン要件
+- **文字**: #FFFFFF
+- **文字**: #648FFE
+- **配色**: パステルピンクとブルーのグラデーション背景
+- **要素**: 雲のイラスト、星、キャラクターイラスト
+- **レイアウト**: 縦長のモバイルファーストデザイン
+- **インタラクション**: スムーズなアニメーション付きの画面遷移
+
+◯カラーコードです◯
+【タイトル】
+文字 白　#FFFFFF
+文字背景 #648FFE ←これを透明度40%
+
+【文字】
+白　#FFFFFF
+黒　#514343
+
+【背景】
+ラベンダー　#F0D4F8
+
+「レンタルも大人気」
+文字　#FFA5F0
+文字背景　#F1D5F9
+
+雲ふきだし　#FFE1FB
+
+
+
+#### 3. 技術要件
+- Laravel Livewire Voltコンポーネントを使用
+- Flux UIコンポーネントをベースにカスタマイズ
+- レスポンシブデザイン対応
+- アニメーション効果（CSS/Alpine.js）
+
+### 実装内容
+
+#### 必要なファイル
+1. **診断ページのVoltコンポーネント**
+   - `resources/views/livewire/beauty-diagnosis.blade.php`
+
+2. **ルート追加**
+   - `routes/web.php`に診断ページのルートを追加
+
+3. **スタイリング**
+   - カスタムCSS（雲、グラデーション、アニメーション）
+
+4. **データ構造**
+   - 診断ロジックとレコメンド商品のデータ
+
+#### 画面構成
+1. **トップ画面**: タイトルとスタートボタン
+2. **第1選択画面**: 3つのメインカテゴリ選択
+3. **第2選択画面**: サブカテゴリ選択  
+4. **結果画面**: レコメンド商品表示
+
+### デザイン詳細
+- 背景: 空と雲のグラデーション
+- ボタン: 丸みを帯びた雲のような形状
+- キャラクター: 可愛らしい女の子のイラスト
+- フォント: 優しく読みやすいフォント
+- アニメーション: ふわふわと浮かぶような動き
+
+
+この要件に基づいて、美容家電診断アプリを実装してください。
