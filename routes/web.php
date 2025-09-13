@@ -1,22 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Livewire\Volt\Volt;
+use App\Http\Controllers\BeautyDiagnosisController;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+// My Beauty Device アプリのメインページ
+Route::get('/', [BeautyDiagnosisController::class, 'index'])->name('home');
 
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
-
-Route::middleware(['auth'])->group(function () {
-    Route::redirect('settings', 'settings/profile');
-
-    Volt::route('settings/profile', 'settings.profile')->name('settings.profile');
-    Volt::route('settings/password', 'settings.password')->name('settings.password');
-    Volt::route('settings/appearance', 'settings.appearance')->name('settings.appearance');
-});
-
-require __DIR__.'/auth.php';
+// 診断ページ（同じ内容）
+Route::get('/beauty-diagnosis', [BeautyDiagnosisController::class, 'index'])->name('beauty.diagnosis');
